@@ -1,0 +1,10 @@
+version: '3'
+services:
+  singlefile:
+    container_name: singlefile-dockerized
+    image: ubtue/singlefile-dockerized
+    entrypoint: python3
+    command: webserver.py
+    ports: 
+      - "8070:80"
+
