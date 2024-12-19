@@ -5,12 +5,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E88979FB9B
 RUN apt-get update \
      && apt-get install -y git apt-utils nodejs curl unzip
 
-#RUN git config --global url."https://".insteadOf ssh://
-#RUN npm view 'gildas-lormeau/SingleFile#master'
-#RUN npm update --verbose -g
-#RUN npm install npm@latest
-
-
 #RUN npm install --verbose verbose 'gildas-lormeau/SingleFile#master'
 RUN curl -fsSL https://deno.land/install.sh | sh
 RUN ln -s /root/.deno/bin/deno /usr/local/bin
