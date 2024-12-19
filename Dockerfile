@@ -1,11 +1,17 @@
 FROM buildkite/puppeteer
 
-RUN apt-get update \
-     && apt-get install -y git
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E88979FB9B30ACF2
 
-RUN npm install 'gildas-lormeau/SingleFile#master'
+RUN apt-get update \
+     && apt-get install -y git apt-utils nodejs curl unzip
+
+#RUN npm install --verbose verbose 'gildas-lormeau/SingleFile#master'
+RUN curl -fsSL https://deno.land/install.sh | sh
+RUN ln -s /root/.deno/bin/deno /usr/local/bin
+RUN npm install "single-file-cli"
 
 WORKDIR /opt/app
+
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
       python3 python3-pip python3-setuptools
@@ -18,6 +24,10 @@ RUN pip3 install \
     --no-warn-script-location \
     --user \
     -r requirements.txt
+
+ENV PATH "$PATH:/root/.dino/bin"
+
+RUN pip3 install markupsafe==2.0.1
 
 RUN rm requirements.txt
 

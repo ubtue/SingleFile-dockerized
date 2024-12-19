@@ -3,7 +3,7 @@ from flask import Flask, request, Response
 
 server = Flask(__name__)
 
-SINGLEFILE_EXECUTABLE = '/node_modules/single-file/cli/single-file'
+SINGLEFILE_EXECUTABLE = '/node_modules/single-file-cli/single-file'
 BROWSER_PATH = '/opt/google/chrome/google-chrome'
 BROWSER_ARGS = '["--no-sandbox"]'
 
