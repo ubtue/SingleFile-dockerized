@@ -4,7 +4,7 @@ SingleFile docker implementation providing access via either a dockerized-CLI or
 Prototype work:
 https://github.com/gildas-lormeau/SingleFile
 
-## Usage
+## Usage (Original Version)
 
 ### Option #1: Run it directly from your docker host:
 
@@ -33,6 +33,18 @@ Then any HTTP POST on port 80 with url parameter will respond with the HTML outp
 ```bash
 curl -d 'url=http://www.example.com/' singlefile:80
 ```
+
+### Usage ubtue version
+Build:
+
+`docker build --no-cache -t ubtue/singlefile-dockerized .`
+
+Run:
+`docker-compose -f docker-compose.yml up`
+
+Query:
+`curl -d 'url=https://...' localhost:8070 > output.html`
+
 
 ### Output example:
 
